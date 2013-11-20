@@ -5,6 +5,7 @@
 <struts>
 	<constant name="struts.objectFactory" value="spring" />
 	<constant name="struts.multipart.saveDir" value="/tmp"/>
+	<constant name="struts.multipart.maxSize" value="20971520"/>
 	<package name="root" extends="struts-default" namespace="/">
 	<!--PDF上传-->
 		<action name="uploadPDF" class="UploadAction" method="uploadPDF">  

@@ -3,7 +3,7 @@ package com.akun.elibrary.action;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.util.UUID;
+import java.io.IOException;
 
 import org.apache.struts2.ServletActionContext;
 
@@ -29,8 +29,16 @@ public class UploadAction extends ActionSupport {
 	        String newName = uploadId+fileFlag;
 	        String exp = getFileExp(uploadFileName);
 	        //File oldFile = new File(ServletActionContext.getServletContext().getRealPath("/")+ "UploadImages" + File.separator+newName);
-	        String path = ServletActionContext.getServletContext().getRealPath("/")+ filePath + File.separator+newName+exp;
+	        //String path = ServletActionContext.getServletContext().getRealPath("/")+ filePath + File.separator+newName+exp;
+	        String folderPath =  ServletActionContext.getServletContext().getRealPath("/")+ filePath;
+	        String path = folderPath + File.separator+newName+exp;
 	        System.out.println(path+"~~~~~~~~~~~~~~~");
+	        File file=new File(folderPath);    
+	        if(!file.exists() && !file .isDirectory())    
+	        {    
+            	file .mkdir();   
+	        }   
+	        
 	        java.io.OutputStream os = new FileOutputStream(path);
 	        byte buffer[] = new byte[8192];  
 	        int count = 0;  
@@ -54,14 +62,14 @@ public class UploadAction extends ActionSupport {
 	
 	public String uploadPhoto(){
 		String fileFlag = "FileImage";
-		String filePath = "/uploadedImages";
+		String filePath = "uploadedImages";
 		retvalue = uploadFile(fileFlag,filePath);
 		return SUCCESS;
 	}
 	
 	public String uploadPDF(){
 		String fileFlag = "FilePDF";
-		String filePath = "/uploadedPDF";
+		String filePath = "uploadedPDF";
 		retvalue = uploadFile(fileFlag,filePath);
 		return SUCCESS;
 	}
