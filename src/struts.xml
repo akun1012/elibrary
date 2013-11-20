@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.multipart.saveDir" value="/tmp"/>
+	<package name="root" extends="struts-default" namespace="/">
+	<!--PDF上传-->
+		<action name="uploadPDF" class="UploadAction" method="uploadPDF">  
+            <!-- <param name="savePath">/photo</param>  --> 
+            <result name="success">pages/adminPages/retvalue.jsp</result>  
+        </action> 
+<!--图片上传-->
+		<action name="uploadPhoto" class="UploadAction" method="uploadPhoto">  
+            <!-- <param name="savePath">/photo</param>  --> 
+            <result name="success">pages/adminPages/retvalue.jsp</result>  
+        </action> 
+<!--Administrator login and logout-->
+		<action name="login" class="LibuserAction" method="login">
+			<result name="success">pages/adminPages/retvalue.jsp</result>
+		</action>
+		<action name="logout" class="LibuserAction" method="logout">
+			<result name="success">pages/adminPages/login.jsp</result>
+		</action>
+<!--Student login and logout-->
+        <action name="studentLogin" class="StudentAction" method="studentLogin">
+        	<result name="success">pages/studentPages/retvalue.jsp</result>
+        </action>
+        <action name="studentLogout" class="StudentAction" method="studentLogout">
+        	<result name="success" type="redirect">pages/studentPages/studentPage.jsp</result>
+        </action>
+<!--Renewal operation-->
+        <action name="deferBorrow" class="BorrowListAction" method="deferBorrow">
+        	<result name="success">pages/studentPages/retvalue.jsp</result>
+        </action>        		
+<!--Literatureforborrow-->
+        <action name="listBorrowList" class="BorrowListAction" method="listBorrowList">
+        	<result name="success">pages/adminPages/retvalue.jsp</result>
+        </action>
+        <action name="listBorrowListNotReturned" class="BorrowListAction" method="listBorrowListNotReturned">
+        	<result name="success">pages/adminPages/retvalue.jsp</result>
+        </action>
+        <action name="listBorrowListByid" class="BorrowListAction" method="listBorrowListByid">
+        	<result name="success">pages/adminPages/retvalue.jsp</result>
+        </action>
+        <action name="listBorrowListByGroup" class="BorrowListAction" method="listBorrowListByGroup">
+        	<result name="success">pages/adminPages/retvalue.jsp</result>
+        </action>
+        <action name="listBorrowListByCategory" class="BorrowListAction" method="listBorrowListByCategory">
+        	<result name="success">pages/adminPages/retvalue.jsp</result>
+        </action>
+        <action name="deleteBorrowInfo" class="BorrowListAction" method="deleteBorrowInfo">
+        	<result name="success">pages/adminPages/retvalue.jsp</result>
+        </action>
+        <action name="BorrowInfoSave" class="BorrowListAction" method="addBorrowInfo">
+        	<result name="success">pages/userPages/retvalue.jsp</result>
+        </action>
+        <action name="ReturnBorrowInfo" class="BorrowListAction" method="returnBorrowInfo">
+        	<result name="success">pages/userPages/retvalue.jsp</result>
+        </action>
+        <action name="listLoginedStudentBorrowedLiterature" class="BorrowListAction" method="listLoginedStudentBorrowedLiterature">
+        	<result name="success">pages/studentPages/retvalue.jsp</result>
+        </action>
+        <action name="returnEmptyJson" class="BorrowListAction" method="returnEmptyJson">
+        	<result name="success">pages/userPages/retvalue.jsp</result>
+        </action>
+        
+<!--Student A-D-U-S-->
+        <action name="showStudent" class="StudentAction" method="showStudent">
+        	<result name="success">pages/adminPages/retvalue.jsp</result>
+        </action>
+        <action name="updateStudent" class="StudentAction" method="updateStudent">
+        	<result name="success">pages/adminPages/retvalue.jsp</result>
+        </action>
+        <action name="addStudent" class="StudentAction" method="addStudent">
+        	<result name="success">pages/adminPages/retvalue.jsp</result>
+        </action>
+        <action name="deleteStudents" class="StudentAction" method="deleteStudents">
+        	<result name="success">pages/adminPages/retvalue.jsp</result>
+        </action>
+        <action name="checkSnumber" class="StudentAction" method="checkSnumber">
+        	<result name="success">pages/adminPages/retvalue.jsp</result>
+        </action>
+<!--classes return list-->
+        <action name="listClasses" class="ClassesAction" method="listClasses">
+        	<result name="success">pages/adminPages/retvalue.jsp</result>
+        </action>
+<!--category A-D-U-S-->
+        <action name="listCategory" class="CategoryAction" method="listCategory">
+        	<result name="success">pages/adminPages/retvalue.jsp</result>
+        </action>
+        <action name="updateCategory" class="CategoryAction" method="updateCategory">
+        	<result name="success">pages/adminPages/retvalue.jsp</result>
+        </action>
+        <action name="deleteCategory" class="CategoryAction" method="deleteCategory">
+        	<result name="success">pages/adminPages/retvalue.jsp</result>
+        </action>
+        <action name="addCategory" class="CategoryAction" method="addCategory">
+        	<result name="success">pages/adminPages/retvalue.jsp</result>
+        </action>
+<!--literature info management-->
+        <action name="listLiterature" class="LiteratureAction" method="listLiterature">
+        	<result name="success">pages/adminPages/retvalue.jsp</result>
+        </action>
+        <action name="deleteLiterature" class="LiteratureAction" method="deleteLiterature">
+        	<result name="success">pages/adminPages/retvalue.jsp</result>
+        </action>
+        <action name="updateLiterature" class="LiteratureAction" method="updateLiterature">
+        	<result name="success">pages/adminPages/retvalue.jsp</result>
+        </action>
+        <action name="addLiterature" class="LiteratureAction" method="addLiterature">
+        	<result name="success">pages/adminPages/retvalue.jsp</result>
+        </action>
+<!--libuser staff management; a-d-u-s; change password-->
+        <action name="listLibuser" class="LibuserAction" method="listLibuser">
+        	<result name="success">pages/adminPages/retvalue.jsp</result>
+        </action>
+        <action name="addLibuser" class="LibuserAction" method="addLibuser">
+        	<result name="success">pages/adminPages/retvalue.jsp</result>
+        </action>
+        <action name="deleteLibuser" class="LibuserAction" method="deleteLibuser">
+        	<result name="success">pages/adminPages/retvalue.jsp</result>
+        </action>
+        <action name="updateLibuser" class="LibuserAction" method="updateLibuser">
+        	<result name="success">pages/adminPages/retvalue.jsp</result>
+        </action>
+        <action name="changeLibuserPwd" class="LibuserAction" method="changeLibuserPwd">
+        	<result name="success">pages/adminPages/retvalue.jsp</result>
+        </action>
+	</package>
+</struts>
+	
