@@ -103,13 +103,15 @@ public class CategoryBOImp implements CategoryBO {
 			JSONArray jsonArray2 = JSONArray.fromObject(categoryJson2);
 			List<Category> categoryList2 = (List<Category>) JSONArray.toCollection(jsonArray2,
 					Category.class);
-			CategoryExample example = new CategoryExample();
 			if (result == 0) {
 				int updatecount = 0;
 				for(int i=0;i<categoryList.size();i++){
-					example.createCriteria().andCategoryidEqualTo(categoryList.get(i).getCategoryid());
+					Category item = categoryList.get(i);
+					CategoryExample example = new CategoryExample();
+					example.createCriteria().andCategoryidEqualTo(item.getCategoryid());
 					try {
-						categoryDAO.updateByExampleSelective(categoryList2.get(i), example);
+						item.setCategoryid(null);
+						categoryDAO.updateByExampleSelective(item, example);
 						updatecount++;
 					}
 					catch (Exception e) {

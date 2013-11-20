@@ -107,10 +107,10 @@ public class LiteratureBOImp implements LiteratureBO {
 			JSONArray jsonArray2 = JSONArray.fromObject(literatureJson2);
 			List<Literature> literatureList2 = (List<Literature>) JSONArray.toCollection(jsonArray2,
 					Literature.class);
-			LiteratureExample example = new LiteratureExample();
 			if (result == 0) {
 				int updatecount = 0;
 				for(int i=0;i<literatureList.size();i++){
+					LiteratureExample example = new LiteratureExample();
 					example.createCriteria().andLiteratureidEqualTo(literatureList.get(i).getLiteratureid());
 					try {
 						literatureDAO.updateByExampleSelective(literatureList2.get(i), example);

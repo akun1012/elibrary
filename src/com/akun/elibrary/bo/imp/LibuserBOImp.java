@@ -139,10 +139,10 @@ public class LibuserBOImp implements LibuserBO {
 			JSONArray jsonArray2 = JSONArray.fromObject(libuserJson2);
 			List<Libuser> libuserList2 = (List<Libuser>) JSONArray.toCollection(jsonArray2,
 					Libuser.class);
-			LibuserExample example = new LibuserExample();
 			if (result == 0) {
 				int updatecount = 0;
 				for(int i=0;i<libuserList.size();i++){
+					LibuserExample example = new LibuserExample();
 					example.createCriteria().andUseridEqualTo(libuserList.get(i).getUserid());
 					try {
 						userDAO.updateByExampleSelective(libuserList2.get(i), example);

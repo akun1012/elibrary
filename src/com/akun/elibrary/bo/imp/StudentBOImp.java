@@ -168,10 +168,10 @@ public class StudentBOImp implements StudentBO {
 					Student.class);
 			Student a = studentList.get(0);
 			System.out.println(a.getSname());
-			StudentExample example = new StudentExample();
 			if (result == 0) {
 				int updatecount = 0;
 				for (Student item : studentList) {
+					StudentExample example = new StudentExample();
 					example.createCriteria().andSnumberEqualTo(item.getSnumber());
 					try {
 						studentDAO.updateByExampleSelective(item, example);
