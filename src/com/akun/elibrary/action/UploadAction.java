@@ -3,7 +3,6 @@ package com.akun.elibrary.action;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.IOException;
 
 import org.apache.struts2.ServletActionContext;
 
@@ -31,6 +30,8 @@ public class UploadAction extends ActionSupport {
 	        //File oldFile = new File(ServletActionContext.getServletContext().getRealPath("/")+ "UploadImages" + File.separator+newName);
 	        //String path = ServletActionContext.getServletContext().getRealPath("/")+ filePath + File.separator+newName+exp;
 	        String folderPath =  ServletActionContext.getServletContext().getRealPath("/")+ filePath;
+	        //String folderPath = getClass().getResource("/"+filePath).toString();
+//	        String folderPath = ServletActionContext.getServletContext().+filePath;
 	        String path = folderPath + File.separator+newName+exp;
 	        System.out.println(path+"~~~~~~~~~~~~~~~");
 	        File file=new File(folderPath);    

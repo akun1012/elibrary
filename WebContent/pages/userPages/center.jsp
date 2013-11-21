@@ -15,6 +15,8 @@
   <script type="text/javascript" src="<%=request.getContextPath()%>/ext/ext-all.js"></script>
   <script type="text/javascript" src="<%=request.getContextPath()%>/ext/src/locale/ext-lang-zh_CN.js"></script>
   <script type="text/javascript">
+  
+  
 	  <% if (session.getAttribute("userInfo") == null) { %>
 	     alert("Only open to platform user.Please retry after logged in.");
 	     window.location = "<%=request.getContextPath()%>/pages/userPages/userPage.jsp";

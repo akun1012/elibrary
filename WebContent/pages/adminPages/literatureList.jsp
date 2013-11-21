@@ -172,6 +172,7 @@ var literatureGrid = new Ext.grid.EditorGridPanel({
 			if(columnIndex == 9)
 			{//FileIMG
 				$("#actualpdf").attr("data", url+"/elibrary/uploadedPDF/"+id+ "FilePDF.pdf");
+				$("#altPDF").attr("href", url+"/elibrary/uploadedPDF/"+id+ "FilePDF.pdf");
 				$("#pdfviewer").show();
 			}
 			else if(columnIndex == 10)
@@ -831,7 +832,7 @@ Ext.onReady(function() {
 <object id="actualpdf" data="<%=request.getContextPath()%>/PDF/test.pdf" type="application/pdf" width="100%" height="100%">
 
   <p>It appears you don't have a PDF plugin for this browser.
-  No biggie... you can <a href="<%=request.getContextPath()%>/PDF/test.pdf">click here to
+  No biggie... you can <a id="altPDF" href="<%=request.getContextPath()%>/PDF/test.pdf">click here to
   download the PDF file.</a></p>	
 
 </object>
