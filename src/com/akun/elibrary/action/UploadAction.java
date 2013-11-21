@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
 import org.apache.struts2.ServletActionContext;
+import org.omg.CORBA.Request;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -30,10 +31,14 @@ public class UploadAction extends ActionSupport {
 	        //File oldFile = new File(ServletActionContext.getServletContext().getRealPath("/")+ "UploadImages" + File.separator+newName);
 	        //String path = ServletActionContext.getServletContext().getRealPath("/")+ filePath + File.separator+newName+exp;
 	        String folderPath =  ServletActionContext.getServletContext().getRealPath("/")+ filePath;
+	        //int saveUrlIndex = this.getClass().getResource("").toString().indexOf("WEB-INF");
+	        //String folderPath = this.getClass().getResource("").toString().substring(0,saveUrlIndex)+filePath;
 	        //String folderPath = getClass().getResource("/"+filePath).toString();
 //	        String folderPath = ServletActionContext.getServletContext().+filePath;
+	        //String folderPath = Request.class.get
 	        String path = folderPath + File.separator+newName+exp;
 	        System.out.println(path+"~~~~~~~~~~~~~~~");
+	        //System.out.println(test);
 	        File file=new File(folderPath);    
 	        if(!file.exists() && !file .isDirectory())    
 	        {    
