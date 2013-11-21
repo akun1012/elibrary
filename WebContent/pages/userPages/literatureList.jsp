@@ -132,13 +132,13 @@ var literatureGrid = new Ext.grid.EditorGridPanel({
 			//console.log(id);
 			if(columnIndex == 9)
 			{//FileIMG
-				$("#actualpdf").attr("data", url+"/elibrary/uploadedPDF/"+id+ "FilePDF.pdf");
-				$("#altPDF").attr("href", url+"/elibrary/uploadedPDF/"+id+ "FilePDF.pdf");
+				$("#actualpdf").attr("data", url+"/uploadedPDF/"+id+ "FilePDF.pdf");
+				$("#altPDF").attr("href", url+"/uploadedPDF/"+id+ "FilePDF.pdf");
 				$("#pdfviewer").show();
 			}
 			else if(columnIndex == 10)
 			{
-				$("#actualimage").attr("src", url+"/elibrary/uploadedImages/"+id+ "FileImage.jpg");
+				$("#actualimage").attr("src", url+"/uploadedImages/"+id+ "FileImage.jpg");
 				$("#imgviewer").show();
 				
 			}
